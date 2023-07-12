@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+    <section class="topBanner">
+        <!--        <input class="search" type="text" placeholder="Search...">-->
+        <div class="bottom">
+            <div class="leftInfo">
+                <img src="">
+                <span class="mainTemperature">15°</span>
+                <span class="location">Innopolis, Russia</span>
+            </div>
+            <div class="rightInfo">
+                <span class="time">7:50 AM</span>
+                <span class="date">12.07 Monday</span>
+            </div>
+        </div>
+    </section>
+    <section class="graph">
+        <div id="container"></div>
+    </section>
+    <section class="bottomSection">
+        <section class="dayCards">
+            <div class="dayCard">
+                <span class="dayName">MON</span>
+                <img src="img/icon/308-1.svg">
+                <span class="dayTemp">22°</span>
+            </div>
+            <div class="dayCard">
+                <span class="dayName">TUE</span>
+                <img src="img/icon/308-1.svg">
+                <span class="dayTemp">22°</span>
+            </div>
+            <div class="dayCard">
+                <span class="dayName">WED</span>
+                <img src="img/icon/308-1.svg">
+                <span class="dayTemp">22°</span>
+            </div>
+            <div class="dayCard">
+                <span class="dayName">THU</span>
+                <img src="img/icon/308-1.svg">
+                <span class="dayTemp">22°</span>
+            </div>
+            <div class="dayCard">
+                <span class="dayName">FRI</span>
+                <img src="img/icon/308-1.svg">
+                <span class="dayTemp">22°</span>
+            </div>
+            <div class="dayCard">
+                <span class="dayName">SAT</span>
+                <img src="img/icon/308-1.svg">
+                <span class="dayTemp">22°</span>
+            </div>
+            <div class="dayCard">
+                <span class="dayName">SUN</span>
+                <img src="img/icon/308-1.svg">
+                <span class="dayTemp">22°</span>
+            </div>
+        </section>
+    </section>
+</main>
+
+<script>
+    anychart.onDocumentReady(function () {
+        // create data set on our data
+        var dataSet = anychart.data.set(getData());
+
+        // map data for the first series, take x from the zero column and value from the first column of data set
+        var firstSeriesData = dataSet.mapAs({x: 0, value: 1});
+
+
+        // create line chart
+        var chart = anychart.line();
+
+        // adding dollar symbols to yAxis labels
+        chart.yAxis().labels().format('{%Value}°');
+        chart.yAxis().enabled(false)
+
+        // turn on the crosshair
+        chart.crosshair(true);
+
+        // turn on chart animation
+        chart.animation(true);
+
+        // turn on the crosshair
+        chart
+            .crosshair()
+            .enabled(true)
+            .yLabel({enabled: false})
+            .yStroke(null)
+            .xStroke('#cecece')
+            .zIndex(99);
+
+        chart
+            .yAxis()
+            .title('')
+            .labels({padding: [5, 5, 0, 5]});
+        chart.xAxis().title('');
+
+        // set chart title text settings
+        chart.title(
+            ''
+        );
+
+        // create first series with mapped data
+        var firstSeries = chart.spline(firstSeriesData);
+        firstSeries.markers(true);
+        firstSeries.labels().format('{%Value}°').enabled(true).anchor('left-bottom').padding(5);
+        firstSeries.name('Temperature');
+        firstSeries.markers().zIndex(100);
+        firstSeries.hovered().markers().enabled(true).type('circle').size(4);
+
+
+        // turn the legend on
+        chart.legend().enabled(false).fontSize(13).padding([0, 0, 20, 0]);
+
+        // set container id for the chart
+        chart.container('container');
+
+        // initiate chart drawing
+        chart.draw();
+    });
+
+    function getData() {
+        return [
+            ['5:00AM', 10],
+            ['6:00AM', 12],
+            ['7:00AM', 11],
+            ['8:00AM', 15],
+            ['9:00AM', 20],
+            ['10:00AM', 22],
+            ['11:00AM', 21],
+            ['12:00AM', 25],
+            ['1:00PM', 31],
+            ['2:00PM', 32],
+            ['3:00PM', 28]
+        ];
+    };
+</script>
+
+</body>
+</html>

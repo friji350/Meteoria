@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: 'Inter', sans-serif;
+    background-color: #E9ECFD;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    background-color: #E9ECFD;
+}
+
+/* All fix */
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                     supported by Chrome, Edge, Opera and Firefox */
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+input[type="text"] {
+    font-family: inherit; /* 1 */
+    font-size: inherit; /* 1 */
+    line-height: inherit; /* 1 */
+    margin: 0; /* 2 */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: " ";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+
+.purple_hover:hover .title {
+    color: #9747FF !important;
+}
+
+/* All fix end*/
+
+main {
+    display: flex;
+    width: 1245px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #E9ECFD;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.topBanner {
+    width: 100%;
+    height: 170px;
+    background-image: url("../img/back.png");
+    background-position: 100% 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: space-between;
+    justify-content: space-between;
+    border-radius: 0px 0px 20px 20px;
+    padding: 20px 30px 60px 30px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.leftInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.rightInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: flex-start;
+}
+
+.mainTemperature {
+    font-family: 'Inter', sans-serif;
+    font-size: 72px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+.location {
+    margin-top: -20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.time {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.date {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.search {
+    width: 825px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background-color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.dayCards {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px 25px;
+    border-radius: 20px;
+}
+
+.graph {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#container {
+    height: 100%;
+}
+
+.dayCard {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.dayName {
+    font-size: 16px;
+}
+
+.dayTemp {
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: -5px;
+}
